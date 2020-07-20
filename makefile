@@ -24,6 +24,7 @@ LUFA_PATH    = ./lufa/LUFA
 CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -IConfig/ ${APPEND_CC_FLAGS}
 LD_FLAGS     =
 BOX_NUMBER   = 1
+SECOND = 148
 
 # Default target
 all:
@@ -43,7 +44,8 @@ hatch-eggs:
 ifeq ($(BOX_NUMBER), 1)
 	$(MAKE) all
 else
-	$(MAKE) TARGET=HatchEggs_$(BOX_NUMBER)_boxes APPEND_CC_FLAGS=-DBOX_NUMBER=$(BOX_NUMBER)
+	echo aaaaaaaaaa
+	$(MAKE) TARGET=HatchEggs_$(BOX_NUMBER)_boxes APPEND_CC_FLAGS="-DBOX_NUMBER=$(BOX_NUMBER) -DSECOND=$(SECOND)"
 endif
 
 release-pokemons:

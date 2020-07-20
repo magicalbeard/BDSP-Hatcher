@@ -44,6 +44,13 @@ static uint8_t ResetPosition(USB_JoystickReport_Input_t* const ReportData, uint1
 
 static uint8_t HatchEgg(USB_JoystickReport_Input_t* const ReportData, uint16_t count)
 {
+	#ifdef SECOND
+		#define RET_COUNT SECOND * 125
+	#else
+		// 一番時間がかかるドラメシヤがこれ
+		#define RET_COUNT 18500
+	#endif
+
 	if (count % 5 == 0)
 		ReportData->Button |= SWITCH_A;
 
@@ -52,7 +59,8 @@ static uint8_t HatchEgg(USB_JoystickReport_Input_t* const ReportData, uint16_t c
 		/* Move right */
 		ReportData->LX = STICK_MAX;
 		break;
-	case 18500:
+	case RET_COUNT:
+
 		/*
 		 * 18500 counts(about 148 seconds) was adjusted based on the time until 
 		 * Dreepy's egg hatch.
