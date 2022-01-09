@@ -20,21 +20,17 @@ static uint8_t OpenPokemonBox(USB_JoystickReport_Input_t* const ReportData, uint
 		if (count % 50 < 25)
 			ReportData->Button |= SWITCH_X;
 		break;
-	case 50 ... 249:
-		/* Move pokemon menu */
-		ReportData->HAT = HAT_TOP_LEFT;
-		break;
 	case 300 ... 349:
 		/* Select pokemon menu */
 		if (count % 50 < 25)
 			ReportData->Button |= SWITCH_A;
 		break;
-	case 500 ... 549:
+	case 600 ... 649:
 		/* Enter pokemon box */
 		if (count % 50 < 25)
 			ReportData->Button |= SWITCH_R;
 		break;
-	case 700:
+	case 750:
 		return 1;
 	}
 	return 0;

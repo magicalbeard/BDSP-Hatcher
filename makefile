@@ -61,6 +61,8 @@ loop-tournament:
 	$(MAKE) TARGET=LoopTournament	APPEND_CC_FLAGS=-DLOOP_TOURNAMENT
 repeat-a:
 	$(MAKE) TARGET=RepeatA		APPEND_CC_FLAGS=-DREPEAT_A
+bdsp-hatch:
+	$(MAKE) TARGET=BDSPHatch	APPEND_CC_FLAGS=-DBDSP_HATCH
 
 .PHONY: clean
 clean:
